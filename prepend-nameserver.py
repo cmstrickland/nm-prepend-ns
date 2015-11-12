@@ -22,7 +22,8 @@ if evt == 'dhcp4-change' and iface == 'wlan0' :
     nameservers = get_ns_list()
     if nameservers[0] != prepend_nameservers[0]:
         new_nameservers = prepend_nameservers + nameservers
-        subprocess.call(["nmcli", "con", "mod", connection, "ipv4.dns", ','.join(new_nameservers)])
+        subprocess.call(["nmcli", "con", "mod", connection,
+                         "ipv4.dns", ','.join(new_nameservers)])
         with open(dnsmasq_resolv_conf,'w') as upstream:
             upstream.writelines( "{}\n".format(server) for server in nameservers )
     print (new_nameservers)
