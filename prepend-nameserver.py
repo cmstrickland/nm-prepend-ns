@@ -4,8 +4,11 @@ import os
 
 
 prepend_nameservers = [ '172.20.0.1' ]
+dnsmasq_resolv_conf = '/var/lib/lxc/upstream-resolv.conf'
+
 connection = os.getenv('CONNECTION_UUID')
 
+# Network manager passes an interface name and an event type in as args
 [iface, evt] = sys.argv[1:]
 
 #nm provides the resolver nameservers list in an env variable
