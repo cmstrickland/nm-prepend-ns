@@ -19,7 +19,7 @@ def get_ns_list(spaced_str=None):
     return spaced_str.split(' ')
 
 
-if evt == 'dhcp4-change' and iface == 'wlan0' :
+if (evt == 'dhcp4-change' or evt == 'up') and iface == 'wlan0' :
     nameservers = get_ns_list()
     if nameservers[0] != prepend_nameservers[0]:
         new_nameservers = prepend_nameservers + nameservers
