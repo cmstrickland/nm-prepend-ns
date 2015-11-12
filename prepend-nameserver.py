@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import os
+import subprocess
 
 
 prepend_nameservers = [ '172.20.0.1' ]
